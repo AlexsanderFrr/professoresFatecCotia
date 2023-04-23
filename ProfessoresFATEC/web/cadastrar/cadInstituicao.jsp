@@ -20,7 +20,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro dos Cooordenadores</title>
+        <title>Cadastro de Instituição</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     </head>
@@ -30,24 +30,24 @@
             <div class="row">
 
                 <div class="col">
-                    <a href="../coordenadores.jsp" class="btn btn-outline-dark"><i class="bi bi-arrow-left-circle-fill"></i> Voltar</a>
+                    <a href="../instituicao.jsp" class="btn btn-outline-dark"><i class="bi bi-arrow-left-circle-fill"></i> Voltar</a>
                     <br><br>
                     <div class="card border-secondary mb-3">
                         <div class="card-header"> 
 
                             <div class="row">
-                                <div class="col-sm-5 col-md-6" style="text-align:left">Cadastrar Coodernadores</div>
+                                <div class="col-sm-5 col-md-6" style="text-align:left">Cadastrar Instituição</div>
 
                                 <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
                                     <form class="form-inline text-center" method="post" action="">
 
                                         <div class="input-group mb-3">
-                                            <select type="text" class="form-select" name="txtBuscaCoordenador" aria-label="Recipient's username" aria-describedby="button-addon2" required>
-                                                <option>Selecione o coordenador</option>
+                                            <select type="text" class="form-select" name="txtBuscaInstituicao" aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                                                <option>Selecione a Instituição</option>
                                                 <%
                                                     try {
                                                         st = new Conexao().conectar().createStatement();
-                                                        rs = st.executeQuery("SELECT * from tbcoordenador");
+                                                        rs = st.executeQuery("SELECT * from tbinstituicao");
                                                         while (rs.next()) {
                                                             if (rs.getString(5).equals("1")) {
                                                                 out.println("<option value='" + rs.getString(2) + "'>" + rs.getString(2) + "</option>");
@@ -58,7 +58,7 @@
                                                     }
                                                 %>
                                             </select>
-                                            <button class="btn btn-outline-secondary" type="submit" name="btnBuscaCoodernador" id="button-addon2"><i class="bi bi-search"></i></button>
+                                            <button class="btn btn-outline-secondary" type="submit" name="btnBuscaInstituicao" id="button-addon2"><i class="bi bi-search"></i></button>
                                         </div>
                                     </form>
                                 </div>
@@ -72,24 +72,24 @@
 
                                     <form class="form-inline" action="" method="post" class="input-group input-group-sm mb-3">
 
-                                        <input type="text" class="form-control" placeholder="Digite o nome do Coordenador" name="txtNomeInstituicao"  aria-label="Recipient's username"><br>
+                                        <input type="text" class="form-control" placeholder="Digite o nome do Instituição" name="txtNomeInstituicao"  aria-label="Recipient's username"><br>
      
                                       
-                                       <button type="submit" name="btnCadCoordenador" class="btn btn-success"><i class="bi bi-clipboard2-fill"></i> Cadastrar</button>
+                                       <button type="submit" name="btnCadInstituicao" class="btn btn-success"><i class="bi bi-clipboard2-fill"></i> Cadastrar</button>
                                     </form>
                                     <%
-                                        String codCoordenador = request.getParameter("txtNomeInstituicao");
+                                        String codInstituicao = request.getParameter("txtNomeInstituicao");
 
                                         st = new Conexao().conectar().createStatement();
 
-                                        if (request.getParameter("btnCadCoordenador") != null) {
+                                        if (request.getParameter("btnCadInstituicao") != null) {
                                             try {
 
-                                                st.executeUpdate("insert into tbcoordenador(nomeCoordenador) values('" + codCoordenador + "')");
+                                                st.executeUpdate("insert into tbinstituicao(nomeInstituicao) values('" + codInstituicao + "')");
 
-                                                out.println("<meta http-equiv='refresh' content='0;URL='../coordenadores.jsp'>");
+                                                out.println("<meta http-equiv='refresh' content='0;URL='../instituicao.jsp'>");
                                                 out.println("<script type=\"text/javascript\">");
-                                                out.println("alert('Cadastro de COORDENADOR realizado com sucesso');");
+                                                out.println("alert('Cadastro de INSTITUICAO realizado com sucesso');");
                                                 out.println("</script>");
                                             } catch (Exception e) {
 
@@ -127,9 +127,6 @@
 
                                 </div>
                             </div>
-
-
-
 
                         </div>
                     </div>

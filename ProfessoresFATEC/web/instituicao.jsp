@@ -44,7 +44,7 @@
                                     <a href="./index.jsp" class="nav-link ">Curso dos Coordenadores</a>
                                 </li>
                                 <li class="nav-item ">
-                                    <a  href="./coordenadores.jsp" class="nav-link ">Coordenadores</a>
+                                    <a  href="./coordenadores.jsp"class="nav-link ">Coordenadores</a>
                                 </li>
                                 <li class="nav-item">
                                     <a  class="nav-link active">Intituição</a>
@@ -52,6 +52,38 @@
                             </ul>
                         </div>
                         <div class="card-body">
+                            <div style="text-align: left">
+                                <a href="./cadastrar\cadInstituicao.jsp" class="btn btn-success"><i class="bi bi-clipboard2-fill"></i> Cadastrar Instituição</a>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Instituição</th>
+                                     
+                                        <th scope="col">Editar</th>
+                                        <th scope="col">Excluir</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%
+                                        try {
+                                            st = new Conexao().conectar().createStatement();
+                                            rs = st.executeQuery("select * from tbinstituicao;");
+                                            out.println("<tr>");
+                                            while (rs.next()) {
+                                                out.println("<td>" + rs.getString(1) + "</td>");
+                                                out.println("<td>" + rs.getString(2) + "</td>");
+                  
+                                                out.print("<td><a href='editarExcluir/ediInstituicao.jsp?funcao=editar&id=" + rs.getString(1) + "'><button class='btn btn-primary'><i class='bi bi-pencil-fill'></i> Editar</button></a></td>");
+                                                out.print("<td><a href='editarExcluir/ediInstituicao.jsp?funcao=excluir&id=" + rs.getString(1) + "'><button class='btn btn-danger'><i class='bi bi-x-lg'></i> Excluir</button></a></td></tr>");
+                                            }
+                                        } catch (Exception e) {
+                                            out.println(e);
+                                        }
+                                    %>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
