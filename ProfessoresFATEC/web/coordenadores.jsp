@@ -76,10 +76,23 @@
                                                 out.println("<td>" + rs.getString(2) + "</td>");
                   
                                                 out.print("<td><a href='editarExcluir/ediCoordenador.jsp?funcao=editar&id=" + rs.getString(1) + "'><button class='btn btn-primary'><i class='bi bi-pencil-fill'></i> Editar</button></a></td>");
-                                                out.print("<td><a href='editarExcluir/ediCoordenador.jsp?funcao=excluir&id=" + rs.getString(1) + "'><button class='btn btn-danger'><i class='bi bi-x-lg'></i> Excluir</button></a></td></tr>");
+                                                out.print("<td><a href='coordenadores.jsp?funcao=excluir&id=" + rs.getString(1) + "'><button class='btn btn-danger'><i class='bi bi-x-lg'></i> Excluir</button></a></td></tr>");
                                             }
                                         } catch (Exception e) {
                                             out.println(e);
+                                        }
+                                         if (request.getParameter("funcao") != null && request.getParameter("funcao").equals("excluir")) {
+
+                                            try {
+                                                String id = request.getParameter("id");
+                                                st = new Conexao().conectar().createStatement();
+                                                st.executeUpdate("Delete from tbcoordenador where codCoordenador='" + id + "'");
+                                                out.println("<meta http-equiv='refresh' content='0;URL=coordenadores.jsp'>");
+                                                out.println("<script type=\"text/javascript\">");
+                                                out.println("alert('Agendamento excluído com sucesso');");
+                                            } catch (Exception e) {
+                                                out.println(e);
+                                            }
                                         }
                                     %>
                                 </tbody>
