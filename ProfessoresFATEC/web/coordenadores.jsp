@@ -47,7 +47,7 @@
                                     <a  class="nav-link active">Coordenadores</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./instituicao.jsp" class="nav-link">Intituição</a>
+                                    <a href="./instituicao.jsp" class="nav-link">Instituição</a>
                                 </li>
                             </ul>
                         </div>
