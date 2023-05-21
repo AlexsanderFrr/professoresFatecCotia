@@ -19,7 +19,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Curso dos Coordenadores</title>
+        <title>Instituição</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     </head>
@@ -44,7 +44,7 @@
                                     <a href="./index.jsp" class="nav-link ">Curso dos Coordenadores</a>
                                 </li>
                                 <li class="nav-item ">
-                                    <a  href="./coordenadores.jsp"class="nav-link ">Coordenadores</a>
+                                    <a  href="./coordenadores.jsp" class="nav-link ">Coordenadores</a>
                                 </li>
                                 <li class="nav-item">
                                     <a  class="nav-link active">Instituição</a>
@@ -75,7 +75,7 @@
                                                 out.println("<td>" + rs.getString(1) + "</td>");
                                                 out.println("<td>" + rs.getString(2) + "</td>");
                   
-                                                out.print("<td><a href='editarExcluir/ediInstituicao.jsp?funcao=editar&id=" + rs.getString(1) + "'><button class='btn btn-primary'><i class='bi bi-pencil-fill'></i> Editar</button></a></td>");
+                                                out.print("<td><a href='editarExcluir/editarInstituicao.jsp?funcao=editar&id=" + rs.getString(1) + "'><button class='btn btn-primary'><i class='bi bi-pencil-fill'></i> Editar</button></a></td>");
                                                 out.print("<td><a href='instituicao.jsp?funcao=excluir&id=" + rs.getString(1) + "'><button class='btn btn-danger'><i class='bi bi-x-lg'></i> Excluir</button></a></td></tr>");
                                             }
                                         } catch (Exception e) {
