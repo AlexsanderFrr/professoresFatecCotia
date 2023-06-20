@@ -60,7 +60,7 @@
                                     <tr>
                                         <th scope="col">ID</th>
                                         <th scope="col">Instituição</th>
-                                     
+
                                         <th scope="col">Editar</th>
                                         <th scope="col">Excluir</th>
                                     </tr>
@@ -74,7 +74,7 @@
                                             while (rs.next()) {
                                                 out.println("<td>" + rs.getString(1) + "</td>");
                                                 out.println("<td>" + rs.getString(2) + "</td>");
-                  
+
                                                 out.print("<td><a href='editarExcluir/editarInstituicao.jsp?funcao=editar&id=" + rs.getString(1) + "'><button class='btn btn-primary'><i class='bi bi-pencil-fill'></i> Editar</button></a></td>");
                                                 out.print("<td><a href='instituicao.jsp?funcao=excluir&id=" + rs.getString(1) + "'><button class='btn btn-danger'><i class='bi bi-x-lg'></i> Excluir</button></a></td></tr>");
                                             }
@@ -83,17 +83,17 @@
                                         }
                                         if (request.getParameter("funcao") != null && request.getParameter("funcao").equals("excluir")) {
 
-                            try {
-                                String id = request.getParameter("id");
-                                st = new Conexao().conectar().createStatement();
-                                st.executeUpdate("Delete from tbInstituicao where codInstituicao='" + id + "'");
-                                out.println("<meta http-equiv='refresh' content='0;URL=instituicao.jsp'>");
-                                out.println("<script type=\"text/javascript\">");
-                                out.println("alert('Agendamento excluído com sucesso');");
-                            } catch (Exception e) {
-                                out.println(e);
-                            }
-                        }
+                                            try {
+                                                String id = request.getParameter("id");
+                                                st = new Conexao().conectar().createStatement();
+                                                st.executeUpdate("Delete from tbInstituicao where codInstituicao='" + id + "'");
+                                                out.println("<meta http-equiv='refresh' content='0;URL=instituicao.jsp'>");
+                                                out.println("<script type=\"text/javascript\">");
+                                                out.println("alert('Agendamento excluído com sucesso');");
+                                            } catch (Exception e) {
+                                                out.println(e);
+                                            }
+                                        }
                                     %>
                                 </tbody>
                             </table>
